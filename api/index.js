@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = (req, res) => {
-  let target = "https://discord.com/"; 
+  let target = "https://scratch.mit.edu/"; 
 
   createProxyMiddleware({
     target,
