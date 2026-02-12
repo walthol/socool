@@ -1,18 +1,15 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = (req, res) => {
-  // This takes whatever you type after the slash and uses it as the arget
-  // Example: your-site.vercel.app/https://scratch.mit.edu
-  let target = req.url.split('/').slice(1).join('/');
+  // Replace the URL below with the site you want to unblock
+  let target = "https://www.google.com/"; 
 
-  if (!target || !target.startsWith('http')) {
-    res.status(400).send("Usage: socool-caxsacmar-bobs-projects-e9a24be8.vercel.app/https://discord.com");
-    return;
-  }
-
+  // This part handles the "handshake" between your Chromebook and the site
   createProxyMiddleware({
     target,
     changeOrigin: true,
-    pathRewrite: (path) => "", // Clears the path so the target site loads correctly
+    pathRewrite: {
+      "^/api": "", 
+    },
   })(req, res);
 };
