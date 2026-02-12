@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = (req, res) => {
-  // This takes whatever you type after the slash and uses it as the target
+  // This takes whatever you type after the slash and uses it as the arget
   // Example: your-site.vercel.app/https://scratch.mit.edu
   let target = req.url.split('/').slice(1).join('/');
 
